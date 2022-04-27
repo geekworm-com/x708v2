@@ -1,9 +1,9 @@
-#x708 V1.3 Powering on /reboot /full shutdown through hardware
+#x708 v2.0/v1.3 Powering on /reboot /full shutdown through hardware
 #!/bin/bash
 
-    sudo sed -e '/shutdown/ s/^#*/#/' -i /etc/rc.local
+#sudo sed -e '/shutdown/ s/^#*/#/' -i /etc/rc.local
 
-    echo '#!/bin/bash
+echo '#!/bin/bash
 
 SHUTDOWN=5
 REBOOTPULSEMINIMUM=200
@@ -46,9 +46,9 @@ sudo sed -i '$ i /etc/x708pwr.sh &' /etc/rc.local
 #X708 full shutdown through Terminal
 #!/bin/bash
 
-    sudo sed -e '/button/ s/^#*/#/' -i /etc/rc.local
+#sudo sed -e '/button/ s/^#*/#/' -i /etc/rc.local
 
-    echo '#!/bin/bash
+echo '#!/bin/bash
 
 BUTTON=13
 

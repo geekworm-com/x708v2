@@ -24,6 +24,8 @@ def readCapacity(bus):
      read = bus.read_word_data(address, 4)
      swapped = struct.unpack("<H", struct.pack(">H", read))[0]
      capacity = swapped/256
+     if capacity > 100:
+        capacity = 100
      return capacity
 
 
@@ -36,15 +38,13 @@ while True:
 
  print ("Battery:%5i%%" % readCapacity(bus))
 
- if readCapacity(bus) == 100:
-
+ if readCapacity(bus) >= 100:
          print ("Battery FULL")
 
  if readCapacity(bus) < 20:
-
          print ("Battery Low")
 
-#Set battery low voltage to shut down
+#Set battery low voltage to shut down, You can modify this voltage threshold (the voltage threshold range must be 2.5~4.1vdc)
  if readVoltage(bus) < 3.00:
 
          print ("Battery LOW!!!")
